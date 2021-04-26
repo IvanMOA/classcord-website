@@ -10,15 +10,7 @@
     <link rel="shortcut icon" href="img/logo-rounded.png">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <style>
-      /* We take the element out of the screen and make it not visible to measure its height/width */
-      .measurable {
-        position: absolute;
-        visibility: hidden;
-        top: -200vh;
-        left: -200vw;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
     <!-- NavBar -->
@@ -37,7 +29,7 @@
             <button id="nav-toggle" class="openMenu visible 2xl:hidden mr-3 text-white outline-none focus:outline-none"><i class="fa fa-bars fa-xs"></i></button>
         </nav>
     <!-- NavBarMenu Responsive -->
-        <div id="nav-content" class="measurable bg-green-400 flex transition-all duration-700 flex-col shadow-sm font-semibold">
+        <div id="nav-content" class="measurable overflow-hidden bg-green-400 flex transition-all duration-500 flex-col shadow-sm font-semibold">
             <a href="https://classcord.me/commands" class="m-2 text-teal-lighter text-white text-xs">Commands</a>
             <a href="https://discord.gg/8VHnTbq" class="m-2 text-teal-lighter text-white text-xs">Help</a>
             <a href="https://www.buymeacoffee.com/classcordbot" class="m-2 text-teal-lighter text-white text-xs">Donation</a>
@@ -202,23 +194,6 @@
         </div>
     </div>
 
-   
-     
-
-
-	<script>
-    const navContent = document.getElementById('nav-content')
-    // Hide the menu instantly after we get its height and dispose the measurable class
-    const navContentMaxHeight = navContent.clientHeight
-    navContent.style.maxHeight = 0;
-    navContent.classList.remove('measurable')
-		//Javascript to toggle the menu
-		document.getElementById('nav-toggle').onclick = function(){
-      // parseInt takes only the number, removing 'px' from the string and
-      // converting it to a number
-      const isOn = parseInt(navContent.style.maxHeight) > 0
-      navContent.style.maxHeight = isOn ? '0px' : `${navContentMaxHeight}px`
-		}
-	</script>
+  <script src="./js/navbar.js"></script>
 </body>
 </html>
